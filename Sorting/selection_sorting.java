@@ -1,38 +1,28 @@
 package Sorting;
-
 public class selection_sorting {
-    public static void selection_sort(int[] arr){
-        int n = arr.length;
-        for(int i =0; i< n-1;i++){
-            int minIndex =i; // assuming the current index holds minimum value
-            for(int j =i +1; j< n; j++){
-                if(arr[j]<arr[minIndex]){
-                    minIndex = j;
+    public static void sel(int[] arr, int n) {
+        for (int i = 0; i <= n - 1; i++) {
+            int mini = i;
+            for (int j = i; j <= n - 1; j++) {
+                if (arr[j] < arr[mini]) {
+                    mini = j;
                 }
             }
-            // swapping the value
-            int temp = arr[minIndex];
-            arr[minIndex] = arr[i];
+            int temp = arr[mini];
+            arr[mini] = arr[i];
             arr[i] = temp;
-        }
-        // printing the sorted array
-        System.out.println("After selection sort: ");
-        for(int num: arr){
-            System.out.println(num + " ");
         }
     }
     public static void main(String[] args) {
-        int [] arr = {1,4,3,2,5,7,6,9,8,10};
 
-        // before sorting the array
-        System.out.println("Before sorting: ");
-        for(int num: arr){
-            System.out.println(num + " ");
+        int[] arr = {5, 3, 8, 1, 2};
+
+        // calling the function
+        sel(arr, arr.length);
+
+        // printing the sorted array
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
         }
-        System.out.println();
-
-        // call selection sort
-        selection_sort(arr);
-
     }
 }
